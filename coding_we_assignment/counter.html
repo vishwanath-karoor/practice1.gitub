@@ -4,9 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Counter DOM</title>
 </head>
 <body>
+    <h1></h1>
+    <button>Increase</button>
+    <button>Decrease</button>
     
 </body>
 </html>
+<script>
+    var counter=localStorage.getItem("Counter_Value") ;
+
+    document.querySelector("h1").innerText=counter;
+    document.querySelector("button").addEventListener("click",fun1)
+    document.querySelector("button+button").addEventListener("click",fun2)
+
+    function fun1(){
+        counter++;
+        document.querySelector("h1").innerText=counter;
+        localStorage.setItem("Counter_Value",counter)
+
+    }
+    function fun2(){
+        counter--;
+        document.querySelector("h1").innerText=counter;
+        localStorage.setItem("Counter_Value",counter)
+
+    }
+</script>
+
+<!-- Create a file counter.html
+Create 2 buttons increase and decrease and one h1
+On clicking the increase button the value of the counter should increase by 1
+On clicking the decrease button the value of the counter should decrease by 1
+Show the current counter value in the h1 tag
+The data should be saved in the localStorage with the key called "counter"
+On refresh the counter should show the data which was already there -->
